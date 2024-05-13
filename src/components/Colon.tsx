@@ -1,4 +1,7 @@
+import { Colors } from "../Paths";
+
 export const Colon = () => {
+  const color = Colors[0];
   return (
     <div
       style={{
@@ -10,28 +13,28 @@ export const Colon = () => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
+        width="30"
+        height="30"
         viewBox="0 0 200 205"
       >
         <path
           d="M0,100a100,100 0 1,0 200,0a100,100 0 1,0 -200,0"
-          fill="#F9FBF2"
+          fill={color}
           filterUnits="userSpaceOnUse"
           filter="drop-shadow( 0px 1px 3px  rgba(0, 0, 0, 0.7)"
         />
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="50"
-        height="50"
+        width="30"
+        height="30"
         viewBox="0 0 200 205"
       >
         <path
           d="M0,100a100,100 0 1,0 200,0a100,100 0 1,0 -200,0"
-          fill="#F9FBF2"
+          fill={color}
           filterUnits="userSpaceOnUse"
-          filter="drop-shadow( 0px 1px 3px  rgba(0, 0, 0, 0.7)"
+          filter="drop-shadow( 0px 1px 3px  rgba(15, 32, 39, 0.7)"
         />
       </svg>
     </div>

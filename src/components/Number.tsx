@@ -1,6 +1,6 @@
 import { animated, useSpring } from "@react-spring/web";
 import { interpolate } from "flubber";
-import { Paths } from "../Paths";
+import { Colors, Paths } from "../Paths";
 
 interface Props {
   index: number;
@@ -8,8 +8,9 @@ interface Props {
 }
 
 export const Number = ({ index, prevIndex }: Props) => {
+  const color = Colors[0];
   const interpolator = interpolate(Paths[prevIndex], Paths[index], {
-    maxSegmentLength: 5,
+    maxSegmentLength: 4,
   });
   const props = useSpring({
     from: { t: 0 },
@@ -21,13 +22,13 @@ export const Number = ({ index, prevIndex }: Props) => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="200"
-        height="200"
+        width="100"
+        height="100"
         viewBox="0 0 200 205"
       >
         <animated.path
           d={props.t.to(interpolator)}
-          fill="#F9FBF2"
+          fill={color}
           filterUnits="userSpaceOnUse"
           filter="drop-shadow( 0px 1px 3px  rgba(0, 0, 0, 0.7)"
         />
