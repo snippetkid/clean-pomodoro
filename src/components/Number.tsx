@@ -39,7 +39,7 @@ export const Number = ({ index, prevIndex, inactive }: Props) => {
         <animated.path
           d={props.t.to(interpolator)}
           fill={color}
-          fillOpacity={0.04}
+          fillOpacity={0.05}
           filterUnits="userSpaceOnUse"
           strokeOpacity={opacityProps.strokeOpacity}
           stroke={color}
