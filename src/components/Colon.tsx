@@ -21,7 +21,7 @@ export const Colon = () => {
           d="M0,100a100,100 0 1,0 200,0a100,100 0 1,0 -200,0"
           fill={color}
           filterUnits="userSpaceOnUse"
-          filter="drop-shadow( 0px 1px 3px  rgba(0, 0, 0, 0.7)"
+          filter="drop-shadow( 2px 2px 3px  rgba(0, 0, 0, 0.7)"
         />
       </svg>
       <svg
@@ -34,7 +34,7 @@ export const Colon = () => {
           d="M0,100a100,100 0 1,0 200,0a100,100 0 1,0 -200,0"
           fill={color}
           filterUnits="userSpaceOnUse"
-          filter="drop-shadow( 0px 1px 3px  rgba(15, 32, 39, 0.7)"
+          filter="drop-shadow( 2px 2px 3px  rgba(0, 0, 0, 0.7)"
         />
       </svg>
     </div>

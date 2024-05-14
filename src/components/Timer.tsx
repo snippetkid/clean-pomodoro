@@ -11,6 +11,8 @@ export const Timer = ({ minutes, seconds, previous, running }: Props) => {
   const [s10, s1] = String(seconds).padStart(2, "0").split("").map(Number);
   const [m10, m1] = String(minutes).padStart(2, "0").split("").map(Number);
 
+  document.title = `${m10}${m1}:${s10}${s1}`;
+
   const getPrevIndexForSecTens = () => {
     if (previous === -1 || !running) {
       return s10;
@@ -48,11 +50,27 @@ export const Timer = ({ minutes, seconds, previous, running }: Props) => {
   console.log(previous);
   return (
     <div style={{ display: "flex" }}>
-      <Num index={m10} prevIndex={getPrevIndexForMinTens()} />
-      <Num index={m1} prevIndex={getPrevIndexForMinutes()} />
+      <Num
+        inactive={!running}
+        index={m10}
+        prevIndex={getPrevIndexForMinTens()}
+      />
+      <Num
+        inactive={!running}
+        index={m1}
+        prevIndex={getPrevIndexForMinutes()}
+      />
       <Colon />
-      <Num index={s10} prevIndex={getPrevIndexForSecTens()} />
-      <Num index={s1} prevIndex={getPrevIndexForSeconds()} />
+      <Num
+        inactive={!running}
+        index={s10}
+        prevIndex={getPrevIndexForSecTens()}
+      />
+      <Num
+        inactive={!running}
+        index={s1}
+        prevIndex={getPrevIndexForSeconds()}
+      />
     </div>
   );
 };
