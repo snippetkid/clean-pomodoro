@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Timer } from "./Timer";
 
 export const Pomodoro = () => {
@@ -6,21 +6,31 @@ export const Pomodoro = () => {
 
   const [start, setStart] = useState(false);
 
-  useEffect(() => {
-    if (start) {
-      const intervalId = setInterval(() => {
-        setElapsedSeconds((value) => value + 1);
-      }, 1000);
-      return () => clearInterval(intervalId);
-    }
-  }, [start]);
+  const prev = useRef(-1);
 
   const minutes = Math.floor(elapsedSeconds / 60);
   const seconds = elapsedSeconds % 60;
 
+  useEffect(() => {
+    if (start) {
+      const intervalId = setInterval(() => {
+        prev.current = prev.current === seconds ? -1 : seconds;
+        setElapsedSeconds((value) => value + 1);
+      }, 1000);
+      return () => clearInterval(intervalId);
+    } else {
+      prev.current = -1;
+    }
+  }, [seconds, start]);
+
   return (
-    <div onClick={() => setStart(!start)}>
-      <Timer minutes={minutes} seconds={seconds} />
+    <div style={{ cursor: "pointer" }} onClick={() => setStart(!start)}>
+      <Timer
+        running={start}
+        previous={prev.current}
+        minutes={minutes}
+        seconds={seconds}
+      />
     </div>
   );
 };

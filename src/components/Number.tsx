@@ -10,7 +10,7 @@ interface Props {
 export const Number = ({ index, prevIndex }: Props) => {
   const color = Colors[0];
   const interpolator = interpolate(Paths[prevIndex], Paths[index], {
-    maxSegmentLength: 4,
+    maxSegmentLength: 5,
   });
   const props = useSpring({
     from: { t: 0 },
@@ -29,8 +29,13 @@ export const Number = ({ index, prevIndex }: Props) => {
         <animated.path
           d={props.t.to(interpolator)}
           fill={color}
+          fillOpacity={0.04}
           filterUnits="userSpaceOnUse"
-          filter="drop-shadow( 0px 1px 3px  rgba(0, 0, 0, 0.7)"
+          strokeOpacity={0.75}
+          stroke={color}
+          strokeWidth={2}
+          strokeLinecap={"round"}
+          filter="drop-shadow( 4px 4px 6px  rgba(0, 0, 0, 1)"
         />
       </svg>
     </div>
