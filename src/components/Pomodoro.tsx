@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Timer } from "./Timer";
 import useInterval from "use-interval";
 
 export const Pomodoro = () => {
-  const LIMIT_MIN = 55;
+  const POMODORO_LIMIT = 25 * 60;
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [start, setStart] = useState(false);
   const prev = useRef(-1);
@@ -11,7 +11,7 @@ export const Pomodoro = () => {
   const minutes = Math.floor(elapsedSeconds / 60);
   const seconds = elapsedSeconds % 60;
 
-  const isComplete = () => LIMIT_MIN === elapsedSeconds;
+  const isComplete = () => POMODORO_LIMIT === elapsedSeconds;
 
   useInterval(() => {
     if (!isComplete()) {
@@ -22,7 +22,7 @@ export const Pomodoro = () => {
         prev.current = -1;
       }
     }
-  }, 2000);
+  }, 1000);
 
   const setTimerStatus = () => {
     if (isComplete()) {
@@ -36,7 +36,6 @@ export const Pomodoro = () => {
   return (
     <div style={{ cursor: "pointer" }} onClick={() => setTimerStatus()}>
       <Timer
-        complete={isComplete()}
         running={start}
         previous={prev.current}
         minutes={minutes}
