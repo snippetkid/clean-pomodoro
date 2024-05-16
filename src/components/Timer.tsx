@@ -13,20 +13,22 @@ export const Timer = ({ minutes, seconds, previous, running }: Props) => {
 
   document.title = `${m10}${m1}:${s10}${s1}`;
 
+  const getPrevIndexForSeconds = () => {
+    if (previous === -1 || !running) {
+      console.log(previous, s1);
+      return s1;
+    }
+    const pindex = s1 === 0 ? 9 : s1 - 1;
+    console.log(previous, pindex);
+    return pindex;
+  };
+
   const getPrevIndexForSecTens = () => {
     if (previous === -1 || !running) {
       return s10;
     }
     const pI = s1 === 0 ? (s10 - 1 < 0 ? 0 : s10 - 1) || 0 : s10;
     return pI;
-  };
-
-  const getPrevIndexForSeconds = () => {
-    if (previous === -1 || !running) {
-      return s1;
-    }
-    const pindex = s1 === 0 ? 9 : s1 - 1;
-    return pindex;
   };
 
   const getPrevIndexForMinutes = () => {
@@ -47,7 +49,6 @@ export const Timer = ({ minutes, seconds, previous, running }: Props) => {
     return prevIndex;
   };
 
-  console.log(previous);
   return (
     <div style={{ display: "flex" }}>
       <Num
@@ -60,7 +61,7 @@ export const Timer = ({ minutes, seconds, previous, running }: Props) => {
         index={m1}
         prevIndex={getPrevIndexForMinutes()}
       />
-      <Colon />
+      <Colon inactive={!running} />
       <Num
         inactive={!running}
         index={s10}
