@@ -25,12 +25,12 @@ export const Number = ({ index, prevIndex, inactive }: Props) => {
       strokeOpacity: 0.05,
       shadow: 0,
     },
-    strokeOpacity: inactive ? 0.05 : 0.75,
+    strokeOpacity: inactive ? 0.1 : 0.75,
     shadow: inactive ? 0.5 : 1,
   });
   return (
     <div>
-      <svg
+      <animated.svg
         xmlns="http://www.w3.org/2000/svg"
         width="100"
         height="100"
@@ -46,10 +46,10 @@ export const Number = ({ index, prevIndex, inactive }: Props) => {
           strokeWidth={2}
           strokeLinecap={"round"}
           filter={opacityProps.shadow.to(
-            (value) => `drop-shadow( 4px 4px 6px  rgba(0, 0, 0, ${value})`
+            (value) => `drop-shadow(3px 3px 4px rgba(0, 0, 0, ${value})`
           )}
         />
-      </svg>
+      </animated.svg>
     </div>
   );
 };
