@@ -6,8 +6,9 @@ A clean, minimalistic Pomodoro timer.
 ## How to use?
 
 - Star ⭐ the repo 😁
+- [Launch the timer](https://snippetkid.github.io/clean-pomodoro/) in a new tab.
 - Click on the timer to start, pause and resume ⏯️
-- The timer alerts with a sound when it reaches 25 minutes 🎶
+- The timer alerts with a sound when it completes 25 minutes 🎶
 
 ## Under the hood
 - React
