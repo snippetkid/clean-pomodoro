@@ -5,9 +5,9 @@ A clean, minimalistic Pomodoro timer.
 
 ## How to use?
 
-Star ⭐ the repo 😁
-Click on the timer to start, pause and resume ⏯️
-The timer alerts with a sound when it reaches 25 minutes 🎶
+- Star ⭐ the repo 😁
+- Click on the timer to start, pause and resume ⏯️
+- The timer alerts with a sound when it reaches 25 minutes 🎶
 
 ## Under the hood
 - React
